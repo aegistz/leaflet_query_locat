@@ -65,7 +65,7 @@ export class IndexComponent implements OnInit {
     this.circle = L.layerGroup().addTo(this.map);
     this.layerGroup = L.layerGroup().addTo(this.map);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Map by <a href="http://www.cgistln.nu.ac.th/" target="_blank">GISTNU</a> '
     }).addTo(this.map)
 
 
