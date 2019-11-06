@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="row content text-center">
+
+
+    <div class="col-sm-3 sidenav" *ngIf="div_show == 1">
+      <div>
+        <img src="http://www3.cgistln.nu.ac.th/training/img/logo.png" alt="" width="100%">
+        <hr>
+      </div>
+      กำหนดรัศมีค้นหา (เมตร) : <input type="text" class="form-control" [(ngModel)]="radius">
+      <br> <button class="btn btn-gistnu btn-block" (click)="locate()"><i class="fa fa-location-arrow"></i>
+        ตำแหน่งปัจจุบัน</button>
+      <hr>
+      <p>ค้นพบ : {{length}} แห่ง</p>
+      <ul class="nav nav-pills nav-stacked anyClass">
+        <li class="nav-item" *ngFor="let item of res">
+          <div class="alert alert-dismissible alert-light col-md-12">
+            <a class="close btn " (click)="show_detail(item)">
+              <i class="fa fa-search"></i>
+            </a>
+            <strong>อ.{{item.ap_tn}}</strong> <br> <small>จ.{{item.pv_tn}}</small>
+          </div>
+          <hr class="new1">
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="col-sm-3 sidenav" *ngIf="div_show == 2">
+      <div class="card mb-3">
+        <br>
+        <h5 class="card-header">ข้อมูลสถานที่</h5>
+
+        <div class="card-body">
+
+          <h5 class="card-title">{{ap_tn}}</h5>
+          <h6 class="card-subtitle text-muted"> จ.{{pv_tn}}</h6>
+        </div>
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+          <!-- Indicators -->
+          <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+          </ul>
+
+          <!-- The slideshow -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://hydralytesports.com.au/wp-content/uploads/sites/9/2017/10/placeholder-300x200.png"
+                alt="Los Angeles" width="100%">
+            </div>
+            <div class="carousel-item">
+              <img src="https://hydralytesports.com.au/wp-content/uploads/sites/9/2017/10/placeholder-300x200.png"
+                alt="Los Angeles" width="100%">
+            </div>
+            <div class="carousel-item">
+              <img src="https://hydralytesports.com.au/wp-content/uploads/sites/9/2017/10/placeholder-300x200.png"
+                alt="Los Angeles" width="100%">
+            </div>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+
+        </div>
+
+        <div class="card-body">
+          <p class="card-text">
+            พื้นที่ : {{areashape}} ไร่
+          </p>
+        </div>
+
+        <div class="card-footer text-muted">
+          <a target="_blank"
+            href="https://www.google.com/maps/dir/1080+%E0%B8%95%E0%B8%B3%E0%B8%9A%E0%B8%A5+%E0%B9%80%E0%B8%9B%E0%B8%B7%E0%B8%AD+%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD+%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%81%E0%B8%A5%E0%B8%B2%E0%B8%87+%E0%B8%99%E0%B9%88%E0%B8%B2%E0%B8%99/%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%95%E0%B8%B8%E0%B8%9C%E0%B8%B2%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7+95+%E0%B8%95+%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%87+%E0%B8%95%E0%B8%B3%E0%B8%9A%E0%B8%A5+%E0%B9%81%E0%B8%84%E0%B8%A1%E0%B8%9B%E0%B9%8C%E0%B8%AA%E0%B8%99+%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD+%E0%B9%80%E0%B8%82%E0%B8%B2%E0%B8%84%E0%B9%89%E0%B8%AD+%E0%B9%80%E0%B8%9E%E0%B8%8A%E0%B8%A3%E0%B8%9A%E0%B8%B9%E0%B8%A3%E0%B8%93%E0%B9%8C+67280/@18.031507,99.461455,8z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x3128090974b5260f:0x770724026b939cb2!2m2!1d100.8604857!2d19.2954613!1m5!1m1!1s0x31204347c0cca891:0xea28cf0075b52c82!2m2!1d101.0508933!2d16.7893315">ค้นหาเส้นทาง</a>
+        </div>
+        <button type="button" class="btn btn-block btn-gistnu btn-sm" (click)="close_detail()"><i
+            class="fa fa-long-arrow-left"></i> กลับ</button>
+      </div>
+
+    </div>
+
+
+
+
+    <div class="col-sm-9">
+      <div id="map" class="largeWidth"></div>
+    </div>
+
+
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p>BY GISTNU</p>
+</footer>

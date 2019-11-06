@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+body {
+  font-family: 'Prompt', sans-serif;
+}
+
+.row.content {
+  height: 620px
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+
+  .row.content {
+    height: auto;
+  }
+}
+
+.anyClass {
+  height: 290px;
+  overflow-y: scroll;
+}
+
+.largeWidth {
+  width: 100%;
+  height: 620px;
+}
+
+
+.nav-item {
+  width: 100%;
+}
+
+.btn-gistnu {
+  color: #fff;
+  background-color: #f26521;
+  border-color: #f26521;
+}
+
+.sidenav {
+  background-color: white;
+}
+
+.card {
+  border: 0px;
+}
