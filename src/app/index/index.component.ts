@@ -23,6 +23,9 @@ export class IndexComponent implements OnInit {
   ap_tn: any
   pv_tn: any
   areashape: any
+  url: any
+  lat_lon_me: any
+  lat_lon_locat: any
 
   constructor(private http: HttpClient,
     public router: Router) {
@@ -46,12 +49,10 @@ export class IndexComponent implements OnInit {
       }).addTo(this.circle);
       this.map.fitBounds(c.getBounds());
 
-      this.http.get("http://localhost:8888/eldermap_api/api_company.php?type=search&lat="
+      this.http.get("http://nucoop.nu.ac.th/1_api_map/api_map_query_demo_1.php?type=search&lat="
         + e.latlng.lat + "&lon=" + e.latlng.lng + "&radius=" + this.radius)
         .subscribe(res => {
           this.res = res
-
-          this.length = this.res.length
           for (var i = 0; i <= this.res.length; i++) {
             this.marker = L.marker([this.res[i].ap_lat, this.res[i].ap_lon])
               .bindPopup(this.res[i].tb_tn)
@@ -92,7 +93,7 @@ export class IndexComponent implements OnInit {
         }).addTo(this.circle);
         this.map.fitBounds(c.getBounds());
 
-        this.http.get("http://localhost:8888/eldermap_api/api_company.php?type=search&lat="
+        this.http.get("http://nucoop.nu.ac.th/1_api_map/api_map_query_demo_1.php?type=search&lat="
           + e.latlng.lat + "&lon=" + e.latlng.lng + "&radius=" + this.radius)
           .subscribe(res => {
             this.res = res
@@ -112,7 +113,7 @@ export class IndexComponent implements OnInit {
 
 
   company() {
-    this.http.get("http://localhost:8888/eldermap_api/api_company.php?type=search")
+    this.http.get("http://nucoop.nu.ac.th/1_api_map/api_map_query_demo_1.php?type=search")
       .subscribe(res => {
       })
   }
@@ -122,6 +123,10 @@ export class IndexComponent implements OnInit {
     this.ap_tn = item.ap_tn;
     this.pv_tn = item.pv_tn;
     this.areashape = item.areashape;
+    this.lat = item.ap_lat
+    this.longi = item.ap_lon
+    this.lat_lon_locat = this.lat + "," + this.longi
+    this.lat_lon_me = '13.734821, 100.581670'
 
 
   }
