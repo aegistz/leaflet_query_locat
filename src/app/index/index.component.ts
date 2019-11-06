@@ -32,8 +32,6 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
     if (this.radius == undefined) {
       this.radius = 50000
     }
@@ -53,9 +51,10 @@ export class IndexComponent implements OnInit {
         + e.latlng.lat + "&lon=" + e.latlng.lng + "&radius=" + this.radius)
         .subscribe(res => {
           this.res = res
+          this.length = this.res.length
           for (var i = 0; i <= this.res.length; i++) {
             this.marker = L.marker([this.res[i].ap_lat, this.res[i].ap_lon])
-              .bindPopup(this.res[i].tb_tn)
+              .bindPopup(this.res[i].ap_tn)
               .addTo(this.layerGroup)
           }
         })
@@ -101,7 +100,7 @@ export class IndexComponent implements OnInit {
             this.length = this.res.length
             for (var i = 0; i <= this.res.length; i++) {
               this.marker = L.marker([this.res[i].ap_lat, this.res[i].ap_lon])
-                .bindPopup(this.res[i].tb_tn)
+                .bindPopup(this.res[i].ap_tn)
                 .addTo(this.layerGroup)
             }
           })

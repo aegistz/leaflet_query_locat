@@ -32,7 +32,7 @@
 
         <div class="card-body">
 
-          <h5 class="card-title">{{ap_tn}}</h5>
+          <h5 class="card-title">อ.{{ap_tn}}</h5>
           <h6 class="card-subtitle text-muted"> จ.{{pv_tn}}</h6>
         </div>
         <div id="demo" class="carousel slide" data-ride="carousel">
@@ -80,8 +80,11 @@
           <a target="_blank"
             href="https://www.google.com/maps/dir/{{lat_lon_me}}/{{lat_lon_locat}}/@17.9752626,100.0975546,10z/am=t/data=!3m1!4b1">ค้นหาเส้นทาง</a>
         </div>
-        <button type="button" class="btn btn-block btn-gistnu btn-sm" (click)="close_detail()"><i
-            class="fa fa-long-arrow-left"></i> กลับ</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-gistnu btn-sm" (click)="close_detail()"><i
+              class="fa fa-long-arrow-left"></i> กลับ</button>
+        </div>
+
       </div>
 
     </div>
